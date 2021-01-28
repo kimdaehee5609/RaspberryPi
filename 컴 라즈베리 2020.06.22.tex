@@ -1,0 +1,570 @@
+%	-------------------------------------------------------------------------------
+% 
+%		2020년 6월 16일 첫작업
+%
+%
+%
+%
+%
+%
+%
+%	-------------------------------------------------------------------------------
+
+%	\documentclass[12pt, a3paper, oneside]{book}
+	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 			=10em}
+		\geometry{bottom			=10em}
+		\geometry{left			=8em}
+		\geometry{right			=8em}
+		\geometry{headheight		=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}					% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+
+		% ------------------------------ 수학 수식
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+			\usepackage{mathtools}				% amsmath 확장판
+
+			\usepackage{scrextend}				% 
+		
+
+		% ------------------------------ LIST
+			\usepackage{enumerate}			%
+			\usepackage{enumitem}			%
+			\usepackage{tablists}				%	수학문제의 보기 등을 표현하는데 사용
+										%	tabenum
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+			\usepackage{tabu}				%
+
+
+
+
+		% ------------------------------ 
+			\usepackage{setspace}			%
+			\usepackage{booktabs}		% table
+			\usepackage{color}			%
+			\usepackage{multirow}			%
+			\usepackage{boxedminipage}	% 미니 페이지
+			\usepackage[pdftex]{graphicx}	% 그림 사용
+			\usepackage[final]{pdfpages}		% pdf 사용
+			\usepackage{framed}			% pdf 사용
+
+			
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+	
+		%	=======================================================================================
+		% 	tikz package
+		% 	
+		% 	--------------------------------- 	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			\usetikzlibrary{mindmap}			
+			
+
+		% --------------------------------- 	page
+			\usepackage{afterpage}		% 다음페이지가 나온면 어떻게 하라는 명령 정의 패키지
+%			\usepackage{fullpage}			% 잘못 사용하면 다 흐트러짐 주의해서 사용
+%			\usepackage{pdflscape}		% 
+			\usepackage{lscape}			%	 
+
+
+			\usepackage{blindtext}
+	
+		% --------------------------------- font 사용
+			\usepackage{pifont}				%
+			\usepackage{textcomp}
+			\usepackage{gensymb}
+			\usepackage{marvosym}
+
+
+
+		% Package --------------------------------- 
+
+			\usepackage{tablists}				%
+
+
+		% Package --------------------------------- 
+			\usepackage[framemethod=TikZ]{mdframed}				% md framed package
+			\usepackage{smartdiagram}								% smart diagram package
+
+
+
+		% Package ---------------------------------    연습문제 
+
+			\usepackage{exsheets}				%
+
+			\SetupExSheets{solution/print=true}
+			\SetupExSheets{question/type=exam}
+			\SetupExSheets[points]{name=point,name-plural=points}
+
+
+		% --------------------------------- 페이지 스타일 지정
+
+		\usepackage[Sonny]		{fncychap}
+
+			\makeatletter
+			\ChNameVar	{\Large\bf}
+			\ChNumVar	{\Huge\bf}
+			\ChTitleVar		{\Large\bf}
+			\ChRuleWidth	{0.5pt}
+			\makeatother
+
+%		\usepackage[Lenny]		{fncychap}
+%		\usepackage[Glenn]		{fncychap}
+%		\usepackage[Conny]		{fncychap}
+%		\usepackage[Rejne]		{fncychap}
+%		\usepackage[Bjarne]	{fncychap}
+%		\usepackage[Bjornstrup]{fncychap}
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhead{} % clear all fields
+		\fancyhead[LO]{\footnotesize \leftmark}
+		\fancyhead[RE]{\footnotesize \leftmark}
+		\fancyfoot{} % clear all fields
+		\fancyfoot[LE,RO]{\large \thepage}
+		%\fancyfoot[CO,CE]{\empty}
+		\renewcommand{\headrulewidth}{1.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+		%	--------------------------------------------------------------------------------------- 
+		% 	tritlesec package
+		% 	
+		% 	
+		% 	------------------------------------------------------------------ section 스타일 지정
+	
+			\usepackage{titlesec}
+		
+		% 	----------------------------------------------------------------- section 글자 모양 설정
+			\titleformat*{\section}					{\large\bfseries}
+			\titleformat*{\subsection}				{\normalsize\bfseries}
+			\titleformat*{\subsubsection}			{\normalsize\bfseries}
+			\titleformat*{\paragraph}				{\normalsize\bfseries}
+			\titleformat*{\subparagraph}				{\normalsize\bfseries}
+	
+		% 	----------------------------------------------------------------- section 번호 설정
+			\renewcommand{\thepart}				{\arabic{part}.}
+			\renewcommand{\thesection}				{\arabic{section}.}
+			\renewcommand{\thesubsection}			{\thesection\arabic{subsection}.}
+			\renewcommand{\thesubsubsection}		{\thesubsection\arabic{subsubsection}}
+			\renewcommand\theparagraph 			{$\blacksquare$ \hspace{3pt}}
+
+		% 	----------------------------------------------------------------- section 페이지 나누기 설정
+			\let\stdsection\section
+			\renewcommand\section{\newpage\stdsection}
+
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	\titlespacing*{commandi} {left} {before-sep} {after-sep} [right-sep]		
+		% 	left
+		%	before-sep		:  수직 전 간격
+		% 	after-sep	 	:  수직으로 후 간격
+		%	right-sep
+
+			\titlespacing*{\section} 			{0pt}{1.0em}{1.0em}
+			\titlespacing*{\subsection}	  		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\subsubsection}		{0ex}{1.0em}{1.0em}
+			\titlespacing*{\paragraph}			{0em}{1.5em}{1.0em}
+			\titlespacing*{\subparagraph}		{4em}{1.0em}{1.0em}
+	
+		%	\titlespacing*{\section} 			{0pt}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\subsection}	  		{0ex}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\subsubsection}		{6ex}{0.0\baselineskip}{0.0\baselineskip}
+		%	\titlespacing*{\paragraph}			{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+
+		% --------------------------------- recommend		섹션별 페이지 상단 여백
+		\newcommand{\SectionMargin}				{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSectionMargin}			{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSubSectionMargin}		{\newpage  \null \vskip 2cm}
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	toc 설정  - table of contents
+		% 	
+		% 	
+		% 	----------------------------------------------------------------  문서 기본 사항 설정
+			\setcounter{secnumdepth}{4} 		% 문단 번호 깊이
+			\setcounter{tocdepth}{2} 			% 문단 번호 깊이 - 목차 출력시 출력 범위
+
+			\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+
+
+		%	--------------------------------------------------------------------------------------- 
+		% 	mini toc 설정
+		% 	
+		% 	
+		% 	--------------------------------------------------------- 장의 목차  minitoc package
+			\usepackage{minitoc}
+
+			\setcounter{minitocdepth}{1}    	%  Show until subsubsections in minitoc
+%			\setlength{\mtcindent}{12pt} 	% default 24pt
+			\setlength{\mtcindent}{24pt} 	% default 24pt
+
+		% 	--------------------------------------------------------- part toc
+		%	\setcounter{parttocdepth}{2} 	%  default
+			\setcounter{parttocdepth}{0}
+		%	\setlength{\ptcindent}{0em}		%  default  목차 내용 들여 쓰기
+			\setlength{\ptcindent}{0em}         
+
+
+		% 	--------------------------------------------------------- section toc
+
+			\renewcommand{\ptcfont}{\normalsize\rm} 		%  default
+			\renewcommand{\ptcCfont}{\normalsize\bf} 	%  default
+			\renewcommand{\ptcSfont}{\normalsize\rm} 	%  default
+
+
+		%	=======================================================================================
+		% 	tocloft package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\usepackage{tocloft}
+
+		% 	------------------------------------------ 목차의 내어쓰기 즉 왼쪽 마진 설정
+			\setlength{\cftsecindent}{2em}			%  section
+
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\setlength{\cftsecnumwidth}{2em}		%  section
+
+
+
+
+
+		%	=======================================================================================
+		% 	flowchart  package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+			\usepackage{flowchart}
+			\usetikzlibrary{arrows}
+
+
+		%	=======================================================================================
+		% 		makeindex package
+		% 	
+		% 	------------------------------------------ 목차의 목차 번호와 목차 사이의 간격 조정
+%			\usepackage{makeindex}
+%			\usepackage{makeidy}
+
+
+		%	=======================================================================================
+		% 		각주와 미주
+		% 	
+
+		\usepackage{endnotes} %미주 사용
+
+
+		%	=======================================================================================
+		% 	줄 간격 설정
+		% 	
+		% 	
+		% 	--------------------------------- 	줄간격 설정
+			\doublespace
+%			\onehalfspace
+%			\singlespace
+		
+		
+
+	% 	============================================================================== itemi Global setting
+
+	
+		%	-------------------------------------------------------------------------------
+		%		Vertical spacing
+		%	-------------------------------------------------------------------------------
+			\setlist[itemize]{topsep=0.0em}			% 상단의 여유치
+			\setlist[itemize]{partopsep=0.0em}			% 
+			\setlist[itemize]{parsep=0.0em}			% 
+%			\setlist[itemize]{itemsep=0.0em}			% 
+			\setlist[itemize]{noitemsep}				% 
+			
+		%	-------------------------------------------------------------------------------
+		%		Horizontal spacing
+		%	-------------------------------------------------------------------------------
+			\setlist[itemize]{labelwidth=1em}			%  라벨의 표시 폭
+			\setlist[itemize]{leftmargin=8em}			%  본문 까지의 왼쪽 여백  - 4em
+			\setlist[itemize]{labelsep=3em} 			%  본문에서 라벨까지의 거리 -  3em
+			\setlist[itemize]{rightmargin=0em}			% 오른쪽 여백  - 4em
+			\setlist[itemize]{itemindent=0em} 			% 점 내민 거리 label sep 과 같은면 점위치 까지 내민다
+			\setlist[itemize]{listparindent=3em}		% 본문 드려쓰기 간격
+	
+	
+			\setlist[itemize]{ topsep=0.0em, 			%  상단의 여유치
+						partopsep=0.0em, 		%  
+						parsep=0.0em, 
+						itemsep=0.0em, 
+						labelwidth=1em, 
+						leftmargin=2.5em,
+						labelsep=2em,			%  본문에서 라벨 까지의 거리
+						rightmargin=0em,		% 오른쪽 여백  - 4em
+						itemindent=0em, 		% 점 내민 거리 label sep 과 같은면 점위치 까지 내민다
+						listparindent=0em}		% 본문 드려쓰기 간격
+	
+%			\begin{itemize}
+	
+		%	-------------------------------------------------------------------------------
+		%		Label
+		%	-------------------------------------------------------------------------------
+			\renewcommand{\labelitemi}{$\bullet$}
+			\renewcommand{\labelitemii}{$\bullet$}
+%			\renewcommand{\labelitemii}{$\cdot$}
+			\renewcommand{\labelitemiii}{$\diamond$}
+			\renewcommand{\labelitemiv}{$\ast$}		
+	
+%			\renewcommand{\labelitemi}{$\blacksquare$}   	% 사각형 - 찬것
+%			\renewcommand\labelitemii{$\square$}		% 사각형 - 빈것	
+			
+
+
+
+
+
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			\doparttoc			
+
+
+
+
+			\title{라즈베리 파이}
+			\author{김대희}
+			\date{2020년 6월}
+			\maketitle
+
+
+			\tableofcontents 		% 목차 출력
+%			\listoffigures 			% 그림 목차 출력
+			\cleardoublepage
+			\listoftables 			% 표 목차 출력
+
+
+
+
+
+		\mdfdefinestyle	{con_specification} {
+						outerlinewidth		=1pt			,%
+						innerlinewidth		=2pt			,%
+						outerlinecolor		=blue!70!black	,%
+						innerlinecolor		=white 			,%
+						roundcorner			=4pt			,%
+						skipabove			=1em 			,%
+						skipbelow			=1em 			,%
+						leftmargin			=0em			,%
+						rightmargin			=0em			,%
+						innertopmargin		=2em 			,%
+						innerbottommargin 	=2em 			,%
+						innerleftmargin		=1em 			,%
+						innerrightmargin		=1em 			,%
+						backgroundcolor		=gray!4			,%
+						frametitlerule		=true 			,%
+						frametitlerulecolor	=white			,%
+						frametitlebackgroundcolor=black		,%
+						frametitleaboveskip=1em 			,%
+						frametitlebelowskip=1em 			,%
+						frametitlefontcolor=white 			,%
+						}
+
+
+
+%	================================================================== Part			라즈베리 파이
+	\addtocontents{toc}{\protect\newpage}
+	\part{라즈베리 파이}
+	\noptcrule
+	\parttoc				
+
+
+
+%	================================================================== Part			라즈베리 파이
+	\addtocontents{toc}{\protect\newpage}
+	\chapter{라즈베리 파이}
+	\noptcrule
+
+	\newpage	
+	\minitoc
+
+
+
+
+
+% ----------------------------------------------------------------------------- 개요
+%
+% -----------------------------------------------------------------------------
+	\section{라즈베라 파이 개요}
+
+
+라즈베리 파이(영어: Raspberry Pi)는 영국 잉글랜드의 라즈베리 파이 재단이 학교와 개발도상국에서 기초 컴퓨터 과학의 교육을 증진시키기 위해 개발한 신용카드 크기의 싱글 보드 컴퓨터이다.[4][5][6][7][8] 초기의 라즈베리 파이는 엘레멘트14/프리미어 파넬, RS 콤포넌트와의 허가된 제조 협정을 통해 제작되었다.[9]
+
+라즈베리 파이는 그래픽 성능이 뛰어나면서도 가격이 저렴(-VAT 제외- 1세대 모델 A와 1세대 모델 A+의 경우 25달러, 1세대와 2세대를 포함한 나머지 모델의 경우 35달러)한 것이 특징이다.
+
+라즈베리 파이는 모두 동일한 비디오코어 IV GPU와,[10] 싱글코어 ARMv6에 호환되는 CPU 또는 신형의 ARMv7에 호환되는 쿼드코어(라즈베리 파이 2), 1 GB의 RAM(라즈베리 파이 2), 512 MB(라즈베리 파이 1 B와 B+),[11] 또는 256 MB(모델 A와 A+, 구형 모델 B)의 메모리를 포함한다. 이들은 SD 카드 슬롯 (모델 A 와 B) 또는 부팅 가능한 매체와 지속적인 정보 저장을 위한 마이크로SDHC를 갖추고 있다.[12]
+
+라즈베리 파이 2를 제외한 라즈베리 파이 모델들은 브로드컴의 BCM2835 단일 칩 시스템을 사용하며,[13] 이 칩에는 ARM1176JZF-S 700 MHz 싱글코어프로세서(일반 데스크탑은 보통 2500 MHz~3500 MHz), 비디오코어 IV VGA[10] 와 512 메가바이트 RAM이 들어 있다. 그리고 라즈베리 파이의 프로세서는 오버클럭시 최대 1000 MHz까지의 성능을 발휘 할 수 있으며, 하드 디스크 드라이브나 솔리드 스테이트 드라이브를 내장하고 있지 않으며, SD 카드(B+,2 B+ 모델은 Micro SD Card를 사용)를 외부 기억장치로 사용한다. 새로 출시한 2 모델 B는 ARM Cortex-A7 0.9GHz프로세서와 램용량이 1GB로 성능이 업그레이드되어 출시 되었다.[12] 라즈베리 재단은 컴퓨터 교육 증진을 위해 2가지 모델을 내놓았으며, 각각 25달러와 35달러로 책정되었다. 2012년 2월 29일 재단에서 35달러짜리 모델의 주문을 받기 시작하였다.[14]
+
+2014년, 라즈베리 파이 재단은 원래의 라즈베리 파이와 계산 능력이 같은 임베디드 시스템의 일부로 사용하기 위한 '계산 모듈'을 출시하였다. 
+2015년 초, 차세대 라즈베리 파이인 라즈베리 파이 2가 출시되었다. 이 새로운 컴퓨터 보드는 처음에는 한 가지 형식(모델 B)이었으며, 쿼드 코어 ARM Cortex-A7 CPU와 1GB RAM에 나머지 사양은 모델 B+와 유사했다. 라즈베리 파이2는 모델 B와 같은 미화 35의 가격을 유지했으며,[17] 미화 20의 모델 A+는 여전히 판매되었다. 2015년 11월, 라즈베리 파이 재단은 그보다 작은 제품인 미화 5의 라즈베리 파이 제로를 출시하였다.
+
+라즈베리 파이 재단은 데비안과 아치 리눅스 ARM 배포판의 다운로드를 제공하고, 주요 프로그래밍 언어로 파이썬의 사용을 촉진하며, BBC 베이직을 지원한다. C, C++, 자바, 펄, 루비, 스퀵 스몰토크 등의 언어가 사용 가능하다.
+
+2015년 6월 8일 현재, 약 5~6백 만 대의 라즈베리 파이가 판매되었다.[22][23] 영국에서 가장 빠른 속도로 팔리고 있는 개인용 컴퓨터로, 라즈베리 파이는 800만 대가 판매된 워드 프로세서 '암스트래드 PCW'에 이어 두 번째로 많이 선적되었다.
+
+
+
+
+% ----------------------------------------------------------------------------- 역사
+%
+% -----------------------------------------------------------------------------
+	\section{ 역사}
+
+
+
+목차
+1	역사
+% ----------------------------------------------------------------------------- 빌매전
+	\section{ 빌매전}
+
+
+빌매전
+
+% ----------------------------------------------------------------------------- 판매
+	\section{ 판매}
+
+1.2	판매
+1.3	2013년
+1.4	2015년
+1.5	2016년
+1.6	2017년
+1.7	2019년
+1.8	2020년
+
+% ----------------------------------------------------------------------------- 하드웨어
+	\section{ 하드웨어}
+
+2	하드웨어
+2.1	명세
+2.1.1	참고
+
+
+% ----------------------------------------------------------------------------- 소프트웨어
+	\section{ 소프트웨어}
+
+3	소프트웨어
+3.1	아키텍처
+3.2	포트될 예정 혹은 포트된 리눅스 배포판 혹은 다른 운영 체제
+
+% ----------------------------------------------------------------------------- 주변장치
+	\section{ 주변장치}
+
+4	주변장치
+
+
+% ----------------------------------------------------------------------------- 평가
+	\section{ 평가}
+
+5	평가
+
+% ----------------------------------------------------------------------------- 사용
+	\section{ 사용}
+
+6	사용
+
+
+% ----------------------------------------------------------------------------- 같이보기
+	\section{ 같이보기}
+
+7	같이 보기
+
+% ----------------------------------------------------------------------------- 참고문헌
+	\section{ 참고문헌}
+8	참고 문헌
+
+% ----------------------------------------------------------------------------- 책
+%
+% -----------------------------------------------------------------------------
+	\section{라즈베리 파이 책 }
+
+
+\paragraph{라즈베리 파이 시작하기}
+
+\begin{itemize}[					
+		topsep=0.0em,			
+		parsep=0.0em,			
+		itemsep=0em,			
+		leftmargin=	3	em,
+		labelwidth=	1	em,			
+		labelsep=		1	 em			
+]					
+	\item	제목 	: 
+	\item	지은이 	:
+	\item	옮김 	:
+	\item	출판사 	: 
+	\item	출판일 	:	 
+	\item	도서관 	: 2020.06.19 수정 분관 004.16 22
+
+\end{itemize}					
+
+
+
+
+% ----------------------------------------------------------------------------- 외부링크
+	\section{ 외부링크}
+
+9	외부 링크
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ------------------------------------------------------------------------------
+% End document
+% ------------------------------------------------------------------------------
+\end{document}
+
+
+	\href{https://www.youtube.com/watch?v=SpqKCQZQBcc}{태양경배자세A}
+	\href{https://www.youtube.com/watch?v=CL3czAIUDFY}{태양경배자세A}
+
+
+https://docs.google.com/spreadsheets/d/1-wRuFU1OReWrtxkhaw9uh5mxouNYRP8YFgykMh2G_8c/edit#gid=0
++
+
+https://seoyeongcokr-my.sharepoint.com/:f:/g/personal/02017_seoyoungeng_com/Ev8nnOI89D1LnYu90SGaVj0BTuckQ46vQe1HiVv-R4qeqQ?e=S3iAHi
